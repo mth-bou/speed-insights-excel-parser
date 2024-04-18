@@ -1,0 +1,42 @@
+{
+  "name": "speed-insights-excel-parser",
+  "version": "1.0.0",
+  "description": "Package that uses Google's Speed Insights API to store collected data in .csv or .xlsx files",
+  "main": "./build/src/index.js",
+  "types": "./build/src/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc",
+    "start": "node ./build/src/index.js",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mth-bou/speed-insights-excel-parser.git"
+  },
+  "keywords": [
+    "speed",
+    "insights",
+    "google",
+    "performance",
+    "metrics",
+    "excel",
+    "csv",
+    "xlsx"
+  ],
+  "author": "Mathieu Boucher",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mth-bou/speed-insights-excel-parser/issues"
+  },
+  "homepage": "https://github.com/mth-bou/speed-insights-excel-parser#readme",
+  "dependencies": {
+    "googleapis": "^134.0.0",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "jest": "^29.7.0",
+    "typescript": "^5.4.5"
+  }
+}
