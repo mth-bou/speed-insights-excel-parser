@@ -3,9 +3,11 @@ import {ApiAuth} from './auth';
 import {Category, Strategy} from "../constants/Enums";
 import Schema$PagespeedApiPagespeedResponseV5 = pagespeedonline_v5.Schema$PagespeedApiPagespeedResponseV5;
 
-type PerformanceOptions = {
-    category: Category[];
-    strategy: Strategy;
+export type PerformanceOptions = {
+    url: string;
+    key?: string;
+    category?: Category[];
+    strategy?: Strategy;
 };
 
 export type ParsedData = {
@@ -25,11 +27,11 @@ export class SpeedInsights {
         this.auth = new ApiAuth(apiKey);
     }
 
-    fetchPerformanceData = async (url: string, options?: PerformanceOptions): Promise<Schema$PagespeedApiPagespeedResponseV5> => {
+    fetchPerformanceData = async (options: PerformanceOptions): Promise<Schema$PagespeedApiPagespeedResponseV5> => {
         const pagespeed = google.pagespeedonline('v5').pagespeedapi;
         try {
             const res = await pagespeed.runpagespeed({
-                url: url,
+                url: options.url,
                 key: this.auth.getApiKey(),
                 category: options?.category,
                 strategy: options?.strategy,

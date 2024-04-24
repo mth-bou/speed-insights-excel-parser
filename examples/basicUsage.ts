@@ -15,7 +15,8 @@ const insights = new SpeedInsights();
 
 const fetchData = async (url: string): Promise<ParsedData | undefined> => {
     try {
-        const rawData = await insights.fetchPerformanceData(url);
+        const rawData = await insights.fetchPerformanceData({url});
+        console.log('Raw data:', rawData);
         return insights.parsePerformanceData(rawData);
     } catch (error) {
         console.error('Error processing data:', error);
@@ -25,5 +26,5 @@ const fetchData = async (url: string): Promise<ParsedData | undefined> => {
 
 const data = fetchData("https://example.com")
 
-const xlsx = new Xlsx();
-xlsx.generate(data, 'output.xlsx');
+/*const xlsx = new Xlsx();
+xlsx.generate(data, 'output.xlsx');*/
