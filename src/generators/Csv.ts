@@ -7,7 +7,7 @@ import fs from "fs";
 
 export class Csv {
 
-    generateCsv(data: object[], headers: string[] = [], options: {}): Promise<string> {
+    generate(data: object[], headers: string[] = [], options: {}): Promise<string> {
         return new Promise((resolve, reject) => {
             stringify(data, {header: true, columns: headers, ...options}, (err, output) => {
                 if (err) reject(err);
